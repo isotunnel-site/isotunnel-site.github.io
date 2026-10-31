@@ -1,12 +1,14 @@
 <!doctype html>
-<html lang="en-AU" data-shot="side" data-frame="border" data-links="plain" data-rules="off" data-changelog="off">
+<html lang="en-AU">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>isotunnel</title>
-<meta name="description" content="isotunnel is a VPN for Windows built on Xray's Reality protocol, with servers in Sydney and Tokyo and a route through Cloudflare for networks that block it.">
-<link rel="preload" href="fonts/merriweather-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="description" content="isotunnel is a VPN for Windows and Mac built on Xray's Reality protocol, with servers in Sydney and Tokyo and seven ways in.">
+<link rel="preload" href="fonts/overpass-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/overpass-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="styles.css">
 <!-- Checkout API. Set to the deployed API's address. -->
@@ -24,135 +26,150 @@
 
 <header class="top">
   <div class="wrap top-inner">
-    <a class="brand" href="./">isotunnel</a>
+    <a class="brand" href="#you">isotunnel</a>
     <nav aria-label="Page">
+      <a href="#ways">Ways in</a>
+      <a href="#sees">What the network sees</a>
       <a href="#get">Download</a>
       <a href="#questions">Questions</a>
-      <a class="nav-changelog" href="#changelog">log</a>
+      <a href="#changelog">Changelog</a>
+      <button class="theme" id="theme" type="button" aria-label="Switch between light and dark">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg>
+      </button>
     </nav>
-    <button class="theme" id="theme" type="button" aria-label="Switch theme">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg>
-    </button>
   </div>
 </header>
 
-<main class="wrap page">
-  <div class="text">
-    <section class="intro">
-      <h1>isotunnel</h1>
-      <p class="lede">A VPN designed for maximum privacy and stealth. It runs on Xray's Reality protocol, so to the network you're using, your connection looks just like an ordinary visit to a common domain rather than a VPN.</p>
-      <p>If a network blocks the server itself, the app can reach it through Cloudflare instead.</p>
-      <p class="dim">Servers in Sydney and Tokyo, with more to come.</p>
-    </section>
+<main class="wrap route">
 
-    <section id="get">
-      <div class="get">
-        <span class="price" id="price">US$2.50 a month with crypto, 150 GB of data</span>
-        <span class="note" id="card-price" hidden></span>
-        <div class="row-btns">
-          <button class="btn" id="buy" type="button">Pay with crypto</button>
-          <button class="btn" id="buy-card" type="button" hidden>Pay by card</button>
+  <section class="stop c-443" id="you">
+    <div class="rail" aria-hidden="true"><span class="mark"></span><span class="seg"></span></div>
+    <div class="body">
+      <span class="station">You</span>
+      <h1>Get online from networks that block VPNs.</h1>
+      <p class="lede">Your connection carries a real website's handshake, so the network you're on sees an ordinary visit to a university site. When a way in is blocked, the app tries the others by itself.</p>
+      <div class="row-btns">
+        <a class="btn go" href="#get">Download isotunnel</a>
+        <span class="note" id="hero-price">US$3.50 a month, 150 GB. Windows and Mac.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="stop c-auto" id="ways">
+    <div class="rail" aria-hidden="true"><span class="mark capsule"></span><span class="seg"></span></div>
+    <div class="body">
+      <span class="station">Ways in</span>
+      <p class="lede">The app connects on Automatic: the usual way first, and if that doesn't connect, it tests the others at once. To choose one yourself, open Your route in the app and press Edit route. Each way in has its own colour on the line.</p>
+      <ul class="ways">
+        <li class="way c-auto"><span class="sw" aria-hidden="true"></span><strong>Automatic</strong><span>Whichever connects, Reality first</span></li>
+        <li class="way c-443"><span class="sw" aria-hidden="true"></span><strong>Port 443</strong><span>Reality, falling back to port 8443</span></li>
+        <li class="way c-cdn"><span class="sw" aria-hidden="true"></span><strong>Cloudflare</strong><span>Through Cloudflare, a little slower</span></li>
+        <li class="way c-hy"><span class="sw" aria-hidden="true"></span><strong>Hysteria</strong><span>Over UDP, quick on lossy connections</span></li>
+        <li class="way c-hy"><span class="sw cased" aria-hidden="true"></span><strong>Scrambled Hysteria</strong><span>Hysteria with every packet scrambled; needs UDP</span></li>
+        <li class="way"><span class="sw two" aria-hidden="true"></span><strong>Hybrid</strong><span>Reality and Hysteria at once, switching by itself</span></li>
+        <li class="way"><span class="sw chain" aria-hidden="true"></span><strong>Hybridised stealth</strong><span>In through Sydney, out through Tokyo</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="stop c-cdn" id="sees">
+    <div class="rail" aria-hidden="true"><span class="mark"></span><span class="seg"></span></div>
+    <div class="body">
+      <span class="station">What the network sees</span>
+      <div class="sees">
+        <div>
+          <h3>From the outside</h3>
+          <p>An encrypted TLS 1.3 connection on port 443 to an ordinary website. The certificate it gets back is that website's real one.</p>
         </div>
-        <p class="note" id="pay-note">Pay in USDT, Bitcoin or another major coin. Your access key appears on the next page as soon as the payment confirms.</p>
-        <div class="download" id="download">
+        <div>
+          <h3>What actually happens</h3>
+          <p>The server recognises your key in that handshake and carries your traffic. Anyone else who connects to it is passed through to the real website.</p>
+        </div>
+      </div>
+      <p class="dim">Through Cloudflare, the network sees an ordinary HTTPS connection to Cloudflare, which serves a large share of the web, and never sees our server's address. The <a href="privacy.html">privacy policy</a> says what Cloudflare can see.</p>
+    </div>
+  </section>
+
+  <section class="stop c-hy" id="get">
+    <div class="rail" aria-hidden="true"><span class="mark"></span><span class="seg"></span></div>
+    <div class="body">
+      <span class="station">Get isotunnel</span>
+      <div class="get">
+        <div class="plan">
+          <span class="price" id="price">US$3.50 a month by card, 150 GB of data</span>
+          <span class="note" id="card-price">Renews every month until you cancel. Up to 3 devices.</span>
           <div class="row-btns">
-            <a class="btn quiet" id="dl-x64" href="updates/0.2.5/isotunnel_0.2.5_x64-setup.exe" download>Download for Windows</a>
-            <a class="btn quiet" id="dl-arm64" href="updates/0.2.5/isotunnel_0.2.5_arm64-setup.exe" download>Windows on ARM</a>
+            <button class="btn go" id="buy-card" type="button">Pay by card</button>
+            <button class="btn quiet" id="buy" type="button" hidden>Pay with crypto</button>
           </div>
-          <p class="note" id="dl-note">Version 0.2.5 for Windows 10 and 11.</p>
+          <p class="note" id="pay-note">Checkout is by Stripe. Your access key appears on the next page as soon as the payment goes through.</p>
+          <p class="form-error" id="buy-error" role="alert" hidden></p>
+        </div>
+        <div class="download" id="download">
+          <p>Before you buy, download the app and press <strong>Test this network</strong>. It tries every way in from your own network and tells you if isotunnel works there.</p>
+          <div class="row-btns">
+            <a class="btn go" id="dl-x64" href="updates/0.2.5/isotunnel_0.2.5_x64-setup.exe" download>Download for Windows</a>
+            <a class="btn quiet" id="dl-arm64" href="updates/0.2.5/isotunnel_0.2.5_arm64-setup.exe" download>Windows on ARM</a>
+            <a class="btn quiet" href="mac.html">Mac</a>
+          </div>
+          <p class="note" id="dl-note">Version 0.2.5 for Windows 10 and 11, and macOS 11 or later.</p>
           <p class="note" id="dl-help">Most PCs need the first one. Windows on ARM is for Snapdragon laptops, such as the Surface Laptop 7. Windows may say the publisher is unknown: choose More info, then Run anyway.</p>
         </div>
-        <p class="form-error" id="buy-error" role="alert" hidden></p>
         <details class="renew">
           <summary>Already have a key? Renew or manage</summary>
           <form id="renew-form" class="renew-form">
             <label for="renew-key" class="note">Your access key</label>
             <input id="renew-key" class="input" type="password" autocomplete="off" spellcheck="false" required>
             <div class="row-btns">
-              <button class="btn" type="submit">Add a month with crypto</button>
-              <button class="btn quiet" id="manage-card" type="button" hidden>Manage card subscription</button>
+              <button class="btn" id="manage-card" type="button">Manage card subscription</button>
+              <button class="btn quiet" id="renew-crypto" type="submit" hidden>Add a month with crypto</button>
             </div>
-            <p class="note" id="manage-note" hidden>Card subscriptions renew by themselves. Use Manage to change your card or cancel.</p>
+            <p class="note" id="manage-note">Card subscriptions renew by themselves. Manage opens Stripe, where you can change your card or cancel.</p>
           </form>
         </details>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="how">
-      <h2>How it works</h2>
-      <p>Sign in with your access key and press Connect. The app points Windows' proxy settings at an Xray process, so your browser and most apps send their traffic through our server in Sydney or Tokyo, whichever you choose. Turn on full device mode in Settings and every app goes through it, games included. Press Disconnect and your old settings come back exactly as they were. We don't keep a record of the sites you visit.</p>
-      <p>The app finds a way in by itself. If the usual way is blocked it tries the others at once, then Cloudflare. To choose one yourself, open Your route in the app, press Edit route and change the way in: Automatic, Port 443 or Cloudflare.</p>
-    </section>
-
-    <section id="sees">
-      <h2>What the network sees</h2>
-      <div class="sees">
-        <div>
-          <h3>From the outside</h3>
-          <p class="dim">Encrypted TLS 1.3 connection on port 443 to an ordinary website. The certificate it gets back is official.</p>
-        </div>
-        <div>
-          <h3>What actually happens</h3>
-          <p class="dim">The server recognises the key in that handshake and carries your traffic. Anyone else who connects to it, including a firewall checking up on it, is passed through to the real website.</p>
-        </div>
+  <section class="stop c-hy" id="questions">
+    <div class="rail" aria-hidden="true"><span class="mark"></span><span class="seg"></span></div>
+    <div class="body">
+      <span class="station">Questions</span>
+      <div class="qa">
+        <div><h3>What do you log?</h3><p>Not the sites you visit, and no logs of your IP address. To run your account we keep your plan, its expiry and how much data you've used. The <a href="privacy.html">privacy policy</a> lists everything.</p></div>
+        <div><h3>Will it work where I am?</h3><p>Download the app and press Test this network on the sign-in screen before you buy. It tries every way in from your own network and tells you if isotunnel works there.</p></div>
+        <div><h3>Mac or phone?</h3><p>Windows and Mac now (<a href="mac.html">installing on a Mac</a>). There's no phone app yet.</p></div>
+        <div><h3>Will it be fast for me?</h3><p>It's quickest near a server: Sydney for Australia and New Zealand, Tokyo for Japan. Choose the nearest one with Change location in the app.</p></div>
+        <div><h3>Does it cover every app?</h3><p>Browsers and most apps by default. Turn on full device mode in Settings and every app goes through it, games included. It asks for administrator permission when you connect.</p></div>
+        <div><h3>What if I use up my data?</h3><p>The VPN pauses until your allowance refills next month, or pay for another month for a fresh allowance straight away. The app shows how much you've used.</p></div>
+        <div><h3>What if I lose my key?</h3><p>If the app is still signed in, open Account and press Show next to Access key: you can copy it there. If not, email <a href="mailto:support@isotunnel.com">support@isotunnel.com</a> with when you paid and we'll try to find it. We never see your card number, so we can't look you up by card, and an older payment may not be traceable. Keep your key somewhere safe, like a password manager.</p></div>
+        <div><h3>What if it can't connect?</h3><p>Turn on troubleshooting mode in Settings and send us the report it makes. The sites you visit and your key are left out of it.</p></div>
+        <div><h3>What if the app crashes while I'm connected?</h3><p>Your original settings are put back straight away. The one exception is on purpose: in full device mode with the kill switch on, the internet stays blocked until isotunnel reconnects.</p></div>
       </div>
-      <p class="dim">Through Cloudflare, the network sees an ordinary HTTPS connection to Cloudflare, which serves a large share of the web, and never sees our server's address. The <a href="privacy.html">privacy policy</a> says what Cloudflare can see.</p>
-    </section>
+    </div>
+  </section>
 
-    <section id="details">
-      <h2>Details</h2>
-      <dl class="details">
-        <dt>Protocol</dt><dd>VLESS with XTLS Reality, or XHTTP through Cloudflare</dd>
+  <section class="stop c-hy" id="details">
+    <div class="rail" aria-hidden="true"><span class="mark"></span><span class="seg"></span></div>
+    <div class="body">
+      <span class="station">Details</span>
+      <dl class="facts-grid">
+        <dt>Protocols</dt><dd>VLESS with XTLS Reality, XHTTP through Cloudflare, and Hysteria 2</dd>
         <dt>Servers</dt><dd>Sydney, Australia and Tokyo, Japan</dd>
-        <dt>Works on</dt><dd>Windows 10 and 11, including Windows on ARM</dd>
+        <dt>Works on</dt><dd>Windows 10 and 11, including Windows on ARM; macOS 11 or later</dd>
         <dt>Covers</dt><dd>Browsers and most apps, or every app in full device mode</dd>
         <dt>Options</dt><dd>Kill switch, ad and tracker blocking, split tunneling for chosen sites and apps</dd>
         <dt>Languages</dt><dd>English, 简体中文, Русский</dd>
-        <dt>Your key</dt><dd>Kept in Windows Credential Manager, not in a file</dd>
+        <dt>Your key</dt><dd>Kept in Windows Credential Manager on Windows</dd>
         <dt>If it crashes</dt><dd>Your proxy settings are put back straight away</dd>
       </dl>
-    </section>
+    </div>
+  </section>
 
-    <section id="questions">
-      <h2>Questions</h2>
-      <div class="qa">
-        <div>
-          <h3>What do you log?</h3>
-          <p>Not the sites you visit, and no logs of your IP address. To run your account we keep your plan, its expiry and how much data you've used. The <a href="privacy.html">privacy policy</a> lists everything.</p>
-        </div>
-        <div>
-          <h3>Mac or phone?</h3>
-          <p>Not yet. It's Windows only for now.</p>
-        </div>
-        <div>
-          <h3>Will it be fast for me?</h3>
-          <p>It's quickest near a server: Sydney for Australia and New Zealand, Tokyo for Japan. Choose the nearest one with Change location in the app. From further away your traffic travels to that server first.</p>
-        </div>
-        <div>
-          <h3>Does it cover every app?</h3>
-          <p>Normally it covers apps that use Windows' proxy settings, which includes browsers and most everyday apps. Some games and apps ignore those settings, so for them turn on full device mode in Settings: every app then goes through the VPN. It asks for administrator permission when you connect.</p>
-        </div>
-        <div>
-          <h3>What if I use up my data?</h3>
-          <p>The VPN pauses until your allowance refills next month. Or pay for another month and you get a fresh allowance straight away. The app shows how much you've used.</p>
-        </div>
-        <div>
-          <h3>Will it work where I am?</h3>
-          <p>Download the app and press Test this network on the sign-in screen before you buy. It tries every way in from your own network and tells you if isotunnel works there.</p>
-        </div>
-        <div>
-          <h3>What if my network blocks it?</h3>
-          <p>On Automatic, the app tries every way in, then Cloudflare, without you doing anything. If it still can't connect, turn on troubleshooting mode in Settings and send us the report it makes. The sites you visit and your key are left out of it.</p>
-        </div>
-        <div>
-          <h3>What if the app crashes while I'm connected?</h3>
-          <p>Your original settings are put back straight away, even if it crashes. The one exception is on purpose: in full device mode with the kill switch on, the internet stays blocked until isotunnel reconnects, so nothing goes out unprotected.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="changelog">
-      <h2>Changelog</h2>
+  <section class="stop c-hy" id="changelog">
+    <div class="rail" aria-hidden="true"><span class="mark"></span><span class="seg"></span></div>
+    <div class="body">
+      <span class="station">Changelog</span>
       <ol class="log" reversed>
         <li>
           <time datetime="2026-10-31">31 Oct 2026</time>
@@ -173,57 +190,56 @@
         <li>
           <time datetime="2026-10-28">28 Oct 2026</time>
           <ul>
-            <li>Version 0.2.3: four more ways in, under Edit route: Hysteria, quick on bad networks; Super stealth; Hybrid, which keeps two connections open and switches between them; and Hybridised stealth, in through one server and out through another. They switch on as the servers get them.</li>
+            <li>Version 0.2.3: four more ways in, under Edit route: Hysteria, quick on bad networks; Super stealth; Hybrid, which keeps two connections open and switches between them; and Hybridised stealth, in through one server and out through another.</li>
             <li>Tokyo, Japan is now a location, next to Sydney.</li>
             <li>The taskbar icon is now the line mark from the title bar, and opening an option in Edit route no longer makes the window jump.</li>
           </ul>
         </li>
-        <li>
-          <time datetime="2026-10-27">27 Oct 2026</time>
-          <ul>
-            <li>Version 0.2.1: a new look. Your connection is drawn as a line, coloured by how you're connected, with your whole route and its settings in one place.</li>
-            <li>Test your network from Settings, choose a location on its own screen, and troubleshoot in a plain terminal window.</li>
-            <li>Fixes a split tunneling setting that could send traffic outside the VPN, and many smaller things.</li>
-          </ul>
-        </li>
-        <li>
-          <time datetime="2026-10-16">16 Oct 2026</time>
-          <ul>
-            <li>Version 0.2.0, the first public release.</li>
-            <li>Connects on more blocked networks: a route through Cloudflare, a second disguise, and all routes tried at once when the usual one is blocked. Connect through: Automatic, Direct or Cloudflare.</li>
-            <li>Full device mode for every app, with a kill switch. Split tunneling for chosen sites and apps.</li>
-            <li>Ad and tracker blocking, auto-reconnect, and connect when isotunnel starts.</li>
-            <li>Windows on ARM. Chinese and Russian. Automatic updates.</li>
-            <li>A troubleshooting mode with live speeds, checks and a report to send for help.</li>
-          </ul>
-        </li>
-        <li>
-          <time datetime="2026-10-05">5 Oct 2026</time>
-          <ul>
-            <li>New interface. Sign-in is remembered in Windows Credential Manager.</li>
-            <li>Account screen with data used and renewal date.</li>
-            <li>First working build: connects through the Sydney server and puts your proxy settings back after a crash.</li>
-          </ul>
-        </li>
       </ol>
-    </section>
-  </div>
-
-  <figure class="shot">
-    <div class="frame">
-      <img class="dark-img" src="img/app-dark.png" width="380" height="600" alt="The isotunnel app, connected to the Sydney server">
-      <img class="light-img" src="img/app-light.png" width="380" height="600" alt="The isotunnel app, connected to the Sydney server">
+      <details class="older">
+        <summary>Earlier versions</summary>
+        <ol class="log">
+          <li>
+            <time datetime="2026-10-27">27 Oct 2026</time>
+            <ul>
+              <li>Version 0.2.1: a new look. Your connection is drawn as a line, coloured by how you're connected, with your whole route and its settings in one place.</li>
+              <li>Test your network from Settings, choose a location on its own screen, and troubleshoot in a plain terminal window.</li>
+              <li>Fixes a split tunneling setting that could send traffic outside the VPN, and many smaller things.</li>
+            </ul>
+          </li>
+          <li>
+            <time datetime="2026-10-16">16 Oct 2026</time>
+            <ul>
+              <li>Version 0.2.0, the first public release.</li>
+              <li>A route through Cloudflare, a second disguise, and all routes tried at once when the usual one doesn't connect. Connect through: Automatic, Direct or Cloudflare.</li>
+              <li>Full device mode for every app, with a kill switch. Split tunneling for chosen sites and apps.</li>
+              <li>Ad and tracker blocking, auto-reconnect, and connect when isotunnel starts.</li>
+              <li>Windows on ARM. Chinese and Russian. Automatic updates.</li>
+              <li>A troubleshooting mode with live speeds, checks and a report to send for help.</li>
+            </ul>
+          </li>
+          <li>
+            <time datetime="2026-10-05">5 Oct 2026</time>
+            <ul>
+              <li>New interface. Sign-in is remembered in Windows Credential Manager.</li>
+              <li>Account screen with data used and renewal date.</li>
+              <li>First working build: connects through the Sydney server and puts your proxy settings back after a crash.</li>
+            </ul>
+          </li>
+        </ol>
+      </details>
     </div>
-    <figcaption>Example screen.</figcaption>
-  </figure>
-</main>
+  </section>
 
-<footer class="wrap bottom">
-  <span>isotunnel</span>
-  <a href="#changelog" class="nav-changelog">log</a>
-  <a href="privacy.html">privacy</a>
-  <a href="terms.html">terms</a>
-</footer>
+  <section class="stop end-stop">
+    <div class="rail" aria-hidden="true"><span class="mark end"></span></div>
+    <div class="body terminus">
+      <strong>Web</strong>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </section>
+</main>
 
 <script>
   (function () {
@@ -236,43 +252,34 @@
       try { localStorage.setItem("isotunnel-site-theme", next); } catch (e) {}
     });
 
-    // Style Studio hook: only on a local copy (file:// or localhost), never on the live site.
-    if (location.protocol === "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-      // Every piece of visible text gets a stable key: "<section id>.<tag><n>", in document order.
-      var SEL = "header a, h1, h2, h3, p, dt, dd, li:not(:has(ul)), time, figcaption, .price, .btn, footer span, footer a";
-      var nodes = {}, originals = {}, counts = {};
-      document.querySelectorAll(SEL).forEach(function (el) {
-        var scope = el.closest("section[id], header, footer, figure");
-        var name = scope ? (scope.id || scope.tagName.toLowerCase()) : "page";
-        var tag = el.tagName.toLowerCase(), c = (counts[name + tag] = (counts[name + tag] || 0) + 1);
-        var key = name + "." + tag + c;
-        nodes[key] = el; originals[key] = el.textContent.trim().replace(/\s+/g, " ");
-        el.addEventListener("input", function () {
-          window.parent.postMessage({ type: "isotunnel-site-text", key: key, value: el.textContent }, "*");
-        });
+    // The line draws down the first time each stretch comes into view, and stays drawn after that.
+    // Stretches already on screen stay as they are; with reduced motion nothing moves.
+    if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var below = [].filter.call(document.querySelectorAll(".seg"), function (s) {
+      return s.getBoundingClientRect().top > innerHeight;
+    });
+    below.forEach(function (s) { s.classList.add("pending"); });
+    var io = new IntersectionObserver(function (seen) {
+      seen.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.remove("pending");
+        io.unobserve(e.target);
       });
-      var editing = false;
-      document.addEventListener("click", function (e) { if (editing && e.target.closest("a")) e.preventDefault(); }, true);
-
-      window.addEventListener("message", function (e) {
-        var d = e.data;
-        if (!d || d.type !== "isotunnel-site-style") return;
-        var s = document.getElementById("studio-css");
-        if (!s) { s = document.createElement("style"); s.id = "studio-css"; document.head.appendChild(s); }
-        s.textContent = String(d.css || "") + (d.editing ? "\n[contenteditable]{outline:1px dashed color-mix(in srgb, currentColor 35%, transparent);outline-offset:3px;cursor:text}[contenteditable]:focus{outline-style:solid}" : "");
-        for (var a in d.attrs) root.setAttribute("data-" + a, d.attrs[a]);
-        if (d.theme === "system") root.removeAttribute("data-theme");
-        else if (d.theme) root.setAttribute("data-theme", d.theme);
-        editing = !!d.editing;
-        var text = d.text || {};
-        for (var k in nodes) {
-          var el = nodes[k];
-          if (el !== document.activeElement) el.textContent = typeof text[k] === "string" ? text[k] : originals[k];
-          if (editing) el.setAttribute("contenteditable", "plaintext-only"); else el.removeAttribute("contenteditable");
+    }, { rootMargin: "0px 0px -15% 0px" });
+    below.forEach(function (s) { io.observe(s); });
+    // Jumping straight to a stop (a link, or a #address): everything up to it is drawn at once, not left
+    // half-way while the page glides past.
+    function drawTo(id) {
+      var stop = id && document.getElementById(id);
+      if (!stop) return;
+      below.forEach(function (s) {
+        if (s.compareDocumentPosition(stop) & Node.DOCUMENT_POSITION_FOLLOWING || stop.contains(s)) {
+          s.classList.remove("pending"); io.unobserve(s);
         }
       });
-      if (window.parent !== window) window.parent.postMessage({ type: "isotunnel-site-ready", originals: originals }, "*");
     }
+    addEventListener("hashchange", function () { drawTo(location.hash.slice(1)); });
+    drawTo(location.hash.slice(1));
   })();
 </script>
 </body>

@@ -38,28 +38,31 @@
     var buy = $("buy"), card = $("buy-card"), manage = $("manage-card");
     if (!buy) return;
 
+    // The page starts card-first (Stripe); the plan says what's really on offer. Prices come from the API:
+    // the card price is Stripe's own.
     api("/api/plan").then(function (p) {
-      var line = money(p.priceUsd, "USD") + " a month with crypto";
-      if (p.dataLimitGb > 0) line += ", " + p.dataLimitGb + " GB of data";
-      $("price").textContent = line;
+      var data = p.dataLimitGb > 0 ? ", " + p.dataLimitGb + " GB of data" : "";
+      var devices = p.deviceLimit > 0 ? " Up to " + p.deviceLimit + " devices." : "";
+      var crypto = p.crypto !== false;
       if (p.card) {
-        var cp = $("card-price");
-        cp.textContent = "Or " + money(p.card.amount, p.card.currency) + " a month by card, renewing automatically until you cancel.";
-        cp.hidden = card.hidden = manage.hidden = $("manage-note").hidden = false;
+        var cardMoney = money(p.card.amount, p.card.currency);
+        $("price").textContent = cardMoney + " a month by card" + data;
+        $("card-price").textContent = "Renews every month until you cancel." + devices +
+          (crypto ? " Or " + money(p.priceUsd, "USD") + " a month with crypto, which doesn't renew by itself." : "");
+        if ($("hero-price")) $("hero-price").textContent = cardMoney + " a month" + (p.dataLimitGb > 0 ? ", " + p.dataLimitGb + " GB" : "") + ". Windows and Mac.";
+      } else {
+        // No card payments: crypto leads.
+        $("price").textContent = money(p.priceUsd, "USD") + " a month with crypto" + data;
+        $("card-price").textContent = devices.trim();
+        card.hidden = manage.hidden = $("manage-note").hidden = true;
+        buy.classList.add("go"); buy.classList.remove("quiet");
+        if ($("hero-price")) $("hero-price").textContent = money(p.priceUsd, "USD") + " a month with crypto. Windows and Mac.";
       }
-      if (p.crypto === false && p.card) {
-        // Cards only for now: lead with the card price, hide what needs crypto.
-        var data = p.dataLimitGb > 0 ? ", " + p.dataLimitGb + " GB of data" : "";
-        $("price").textContent = money(p.card.amount, p.card.currency) + " a month by card" + data;
-        $("card-price").textContent = "Renews automatically until you cancel. Crypto payments are coming soon.";
-        buy.hidden = true;
-        $("renew-form").querySelector('button[type="submit"]').hidden = true;
-        $("pay-note").hidden = true;
-      }
+      buy.hidden = $("renew-crypto").hidden = !crypto;
+      if (crypto && !p.card) $("pay-note").textContent = "Pay in USDT, Bitcoin or another major coin. Your access key appears on the next page as soon as the payment confirms.";
     }).catch(function () {
-      // The payment service isn't running (yet): say so up front instead of failing on a click.
-      buy.disabled = true;
-      $("renew-form").querySelector('button[type="submit"]').disabled = true;
+      // The payment service isn't answering: say so up front instead of failing on a click.
+      card.disabled = buy.disabled = manage.disabled = true;
       $("pay-note").textContent = "Buying opens soon. You can download the app now.";
     });
 
@@ -77,7 +80,9 @@
 
     $("renew-form").addEventListener("submit", function (e) {
       e.preventDefault();
-      var b = e.target.querySelector('button[type="submit"]');
+      // Enter in the key box: with crypto off, the only thing to do with a key is manage the card subscription.
+      if ($("renew-crypto").hidden) { manage.click(); return; }
+      var b = $("renew-crypto");
       busy(b, "Creating invoice…", function () {
         return api("/api/checkout", { renewKey: $("renew-key").value.trim() }).then(function (d) {
           remember(d.orderUrl.split("#")[1]); location.href = d.orderUrl;
