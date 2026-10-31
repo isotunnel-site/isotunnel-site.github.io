@@ -1,0 +1,23 @@
+{
+  "version": "0.2.5",
+  "notes": "You can now see and copy your access key in Account. Change location opens right on the Connect screen. The network test shows each way's colour again, and the Chinese and Russian text is improved.",
+  "pub_date": "2026-10-30T10:11:37.166Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZlYvTkZuR1UraU4zSWx3cHpLVTkxYjFPTlVYd2d3V0tqNmttZ1dJRzR3L1RuT2wzaUxvWG9VelJtQms3UzRqQWN5RGRSaUFMMy9hNGV5S095OFVsUTBLUXFoVmF3SGcwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMzU1MDk3CWZpbGU6aXNvdHVubmVsXzAuMi41X3g2NC1zZXR1cC5leGUJdmVyc2lvbjowLjIuNQptVzhPZlFWY2lvU3NtVFIzbXRmcUYzcENQaVVVekJiTGM1R092U2FLZnYvakN0MEJwSWg1VWJBUjBnb3ZacGpLSktpNXFBbExkdURSaTJMREhlcXNEdz09Cg==",
+      "url": "https://isotunnel.com/updates/0.2.5/isotunnel_0.2.5_x64-setup.exe"
+    },
+    "windows-aarch64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZlYvTkZuR1UraU82T04zZDRuaDdaOEZXWlRrRTRqb05UK09YZktjWlJhcE81amxielV3ZFgveGRHbi9mM251MWpNMXB6bWtYRmk3RHorbU8vOUVuOFI3V3o5cE1KT1FvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMzU1MjU2CWZpbGU6aXNvdHVubmVsXzAuMi41X2FybTY0LXNldHVwLmV4ZQl2ZXJzaW9uOjAuMi41Ck1nNmd4MEZLQ3kzY0dmZFR1VExQWnBFS3Q5d2pKR0IyR1FMaDA5UllVakkvTE44WjlrK1FNdmd2MytxZzRNa0lidmNlamt6blJ2T3JxSFdoelNYdkFBPT0K",
+      "url": "https://isotunnel.com/updates/0.2.5/isotunnel_0.2.5_arm64-setup.exe"
+    },
+    "darwin-aarch64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZlYvTkZuR1UraUNFNnByY1RyL0YybVdCcE5lYS81NDZ6eThIL0dXaVdjY1dFRURBd1JZZ0JQL3ZiOUd0ZUs1ZTltbTVvU3B5UVNBVGdObW8rN0todTlSdllFbGxVbWcwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMzk2Njk2CWZpbGU6aXNvdHVubmVsXzAuMi41X2FhcmNoNjQtYXBwbGUtZGFyd2luLmFwcC50YXIuZ3oKUHRWU0tnMkFHV1hVemlQSzhPRjVhdXFhckU2Y2pJT1RWNnZMdE9EeWIyQUFtWFR1dEdocU5Dekg1ZVVIT0pCL3NwdmxpVWd4ZGcvNDJMNm9NK3hqQ2c9PQo=",
+      "url": "https://isotunnel.com/updates/0.2.5/isotunnel_0.2.5_aarch64-apple-darwin.app.tar.gz"
+    },
+    "darwin-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZlYvTkZuR1UraUpPN2t2U1BWWHdCSlRobFpBbkRDUjdEWE9taUtMQUljZVFUYlNGK2swOVVFaTZnUDYvUWlKcVA3ZGhSNS9XbFE3ZS9VMWYvaEtsbmZnUm8rWkoxTkFBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMzk2Njk3CWZpbGU6aXNvdHVubmVsXzAuMi41X3g4Nl82NC1hcHBsZS1kYXJ3aW4uYXBwLnRhci5negpZZUJkdjc0cTV0OEg0Z1IwbUtBRlA0OGNFOVVSdGpwWlBQVlF0d1o2K25oQzZyY09uaG9abWFzU0FMTHRNa05uSEtJTWV4cXM4QXJ4YU1wRmNRZ0NDdz09Cg==",
+      "url": "https://isotunnel.com/updates/0.2.5/isotunnel_0.2.5_x86_64-apple-darwin.app.tar.gz"
+    }
+  }
+}

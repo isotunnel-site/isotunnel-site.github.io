@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en-AU" data-shot="side" data-frame="border" data-links="plain" data-rules="off" data-changelog="off">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>isotunnel</title>
+<meta name="description" content="isotunnel is a VPN for Windows built on Xray's Reality protocol, with servers in Sydney and Tokyo and a route through Cloudflare for networks that block it.">
+<link rel="preload" href="fonts/merriweather-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<!-- Checkout API. Set to the deployed API's address. -->
+<meta name="isotunnel-api" content="https://api.isotunnel.com">
+<script src="checkout.js" defer></script>
+<script src="download.js" defer></script>
+<script>
+  try {
+    var t = localStorage.getItem("isotunnel-site-theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="./">isotunnel</a>
+    <nav aria-label="Page">
+      <a href="#get">Download</a>
+      <a href="#questions">Questions</a>
+      <a class="nav-changelog" href="#changelog">log</a>
+    </nav>
+    <button class="theme" id="theme" type="button" aria-label="Switch theme">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap page">
+  <div class="text">
+    <section class="intro">
+      <h1>isotunnel</h1>
+      <p class="lede">A VPN designed for maximum privacy and stealth. It runs on Xray's Reality protocol, so to the network you're using, your connection looks just like an ordinary visit to a common domain rather than a VPN.</p>
+      <p>If a network blocks the server itself, the app can reach it through Cloudflare instead.</p>
+      <p class="dim">Servers in Sydney and Tokyo, with more to come.</p>
+    </section>
+
+    <section id="get">
+      <div class="get">
+        <span class="price" id="price">US$2.50 a month with crypto, 150 GB of data</span>
+        <span class="note" id="card-price" hidden></span>
+        <div class="row-btns">
+          <button class="btn" id="buy" type="button">Pay with crypto</button>
+          <button class="btn" id="buy-card" type="button" hidden>Pay by card</button>
+        </div>
+        <p class="note" id="pay-note">Pay in USDT, Bitcoin or another major coin. Your access key appears on the next page as soon as the payment confirms.</p>
+        <div class="download" id="download">
+          <div class="row-btns">
+            <a class="btn quiet" id="dl-x64" href="updates/0.2.5/isotunnel_0.2.5_x64-setup.exe" download>Download for Windows</a>
+            <a class="btn quiet" id="dl-arm64" href="updates/0.2.5/isotunnel_0.2.5_arm64-setup.exe" download>Windows on ARM</a>
+          </div>
+          <p class="note" id="dl-note">Version 0.2.5 for Windows 10 and 11.</p>
+          <p class="note" id="dl-help">Most PCs need the first one. Windows on ARM is for Snapdragon laptops, such as the Surface Laptop 7. Windows may say the publisher is unknown: choose More info, then Run anyway.</p>
+        </div>
+        <p class="form-error" id="buy-error" role="alert" hidden></p>
+        <details class="renew">
+          <summary>Already have a key? Renew or manage</summary>
+          <form id="renew-form" class="renew-form">
+            <label for="renew-key" class="note">Your access key</label>
+            <input id="renew-key" class="input" type="password" autocomplete="off" spellcheck="false" required>
+            <div class="row-btns">
+              <button class="btn" type="submit">Add a month with crypto</button>
+              <button class="btn quiet" id="manage-card" type="button" hidden>Manage card subscription</button>
+            </div>
+            <p class="note" id="manage-note" hidden>Card subscriptions renew by themselves. Use Manage to change your card or cancel.</p>
+          </form>
+        </details>
+      </div>
+    </section>
+
+    <section id="how">
+      <h2>How it works</h2>
+      <p>Sign in with your access key and press Connect. The app points Windows' proxy settings at an Xray process, so your browser and most apps send their traffic through our server in Sydney or Tokyo, whichever you choose. Turn on full device mode in Settings and every app goes through it, games included. Press Disconnect and your old settings come back exactly as they were. We don't keep a record of the sites you visit.</p>
+      <p>The app finds a way in by itself. If the usual way is blocked it tries the others at once, then Cloudflare. To choose one yourself, open Your route in the app, press Edit route and change the way in: Automatic, Port 443 or Cloudflare.</p>
+    </section>
+
+    <section id="sees">
+      <h2>What the network sees</h2>
+      <div class="sees">
+        <div>
+          <h3>From the outside</h3>
+          <p class="dim">Encrypted TLS 1.3 connection on port 443 to an ordinary website. The certificate it gets back is official.</p>
+        </div>
+        <div>
+          <h3>What actually happens</h3>
+          <p class="dim">The server recognises the key in that handshake and carries your traffic. Anyone else who connects to it, including a firewall checking up on it, is passed through to the real website.</p>
+        </div>
+      </div>
+      <p class="dim">Through Cloudflare, the network sees an ordinary HTTPS connection to Cloudflare, which serves a large share of the web, and never sees our server's address. The <a href="privacy.html">privacy policy</a> says what Cloudflare can see.</p>
+    </section>
+
+    <section id="details">
+      <h2>Details</h2>
+      <dl class="details">
+        <dt>Protocol</dt><dd>VLESS with XTLS Reality, or XHTTP through Cloudflare</dd>
+        <dt>Servers</dt><dd>Sydney, Australia and Tokyo, Japan</dd>
+        <dt>Works on</dt><dd>Windows 10 and 11, including Windows on ARM</dd>
+        <dt>Covers</dt><dd>Browsers and most apps, or every app in full device mode</dd>
+        <dt>Options</dt><dd>Kill switch, ad and tracker blocking, split tunneling for chosen sites and apps</dd>
+        <dt>Languages</dt><dd>English, 简体中文, Русский</dd>
+        <dt>Your key</dt><dd>Kept in Windows Credential Manager, not in a file</dd>
+        <dt>If it crashes</dt><dd>Your proxy settings are put back straight away</dd>
+      </dl>
+    </section>
+
+    <section id="questions">
+      <h2>Questions</h2>
+      <div class="qa">
+        <div>
+          <h3>What do you log?</h3>
+          <p>Not the sites you visit, and no logs of your IP address. To run your account we keep your plan, its expiry and how much data you've used. The <a href="privacy.html">privacy policy</a> lists everything.</p>
+        </div>
+        <div>
+          <h3>Mac or phone?</h3>
+          <p>Not yet. It's Windows only for now.</p>
+        </div>
+        <div>
+          <h3>Will it be fast for me?</h3>
+          <p>It's quickest near a server: Sydney for Australia and New Zealand, Tokyo for Japan. Choose the nearest one with Change location in the app. From further away your traffic travels to that server first.</p>
+        </div>
+        <div>
+          <h3>Does it cover every app?</h3>
+          <p>Normally it covers apps that use Windows' proxy settings, which includes browsers and most everyday apps. Some games and apps ignore those settings, so for them turn on full device mode in Settings: every app then goes through the VPN. It asks for administrator permission when you connect.</p>
+        </div>
+        <div>
+          <h3>What if I use up my data?</h3>
+          <p>The VPN pauses until your allowance refills next month. Or pay for another month and you get a fresh allowance straight away. The app shows how much you've used.</p>
+        </div>
+        <div>
+          <h3>Will it work where I am?</h3>
+          <p>Download the app and press Test this network on the sign-in screen before you buy. It tries every way in from your own network and tells you if isotunnel works there.</p>
+        </div>
+        <div>
+          <h3>What if my network blocks it?</h3>
+          <p>On Automatic, the app tries every way in, then Cloudflare, without you doing anything. If it still can't connect, turn on troubleshooting mode in Settings and send us the report it makes. The sites you visit and your key are left out of it.</p>
+        </div>
+        <div>
+          <h3>What if the app crashes while I'm connected?</h3>
+          <p>Your original settings are put back straight away, even if it crashes. The one exception is on purpose: in full device mode with the kill switch on, the internet stays blocked until isotunnel reconnects, so nothing goes out unprotected.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="changelog">
+      <h2>Changelog</h2>
+      <ol class="log" reversed>
+        <li>
+          <time datetime="2026-10-31">31 Oct 2026</time>
+          <ul>
+            <li>Version 0.2.5: see and copy your access key in Account.</li>
+            <li>Change location now opens right on the Connect screen.</li>
+            <li>The network test shows each way's colour again, and the Chinese and Russian text is improved.</li>
+          </ul>
+        </li>
+        <li>
+          <time datetime="2026-10-30">30 Oct 2026</time>
+          <ul>
+            <li>Version 0.2.4: fixes the internet not working after disconnecting on some PCs.</li>
+            <li>Choose your location right in Edit route, connected or not. A chosen city is now the only one used.</li>
+            <li>Super stealth is now called Scrambled Hysteria, as it needs a network that allows UDP. Editor options open and close smoothly.</li>
+          </ul>
+        </li>
+        <li>
+          <time datetime="2026-10-28">28 Oct 2026</time>
+          <ul>
+            <li>Version 0.2.3: four more ways in, under Edit route: Hysteria, quick on bad networks; Super stealth; Hybrid, which keeps two connections open and switches between them; and Hybridised stealth, in through one server and out through another. They switch on as the servers get them.</li>
+            <li>Tokyo, Japan is now a location, next to Sydney.</li>
+            <li>The taskbar icon is now the line mark from the title bar, and opening an option in Edit route no longer makes the window jump.</li>
+          </ul>
+        </li>
+        <li>
+          <time datetime="2026-10-27">27 Oct 2026</time>
+          <ul>
+            <li>Version 0.2.1: a new look. Your connection is drawn as a line, coloured by how you're connected, with your whole route and its settings in one place.</li>
+            <li>Test your network from Settings, choose a location on its own screen, and troubleshoot in a plain terminal window.</li>
+            <li>Fixes a split tunneling setting that could send traffic outside the VPN, and many smaller things.</li>
+          </ul>
+        </li>
+        <li>
+          <time datetime="2026-10-16">16 Oct 2026</time>
+          <ul>
+            <li>Version 0.2.0, the first public release.</li>
+            <li>Connects on more blocked networks: a route through Cloudflare, a second disguise, and all routes tried at once when the usual one is blocked. Connect through: Automatic, Direct or Cloudflare.</li>
+            <li>Full device mode for every app, with a kill switch. Split tunneling for chosen sites and apps.</li>
+            <li>Ad and tracker blocking, auto-reconnect, and connect when isotunnel starts.</li>
+            <li>Windows on ARM. Chinese and Russian. Automatic updates.</li>
+            <li>A troubleshooting mode with live speeds, checks and a report to send for help.</li>
+          </ul>
+        </li>
+        <li>
+          <time datetime="2026-10-05">5 Oct 2026</time>
+          <ul>
+            <li>New interface. Sign-in is remembered in Windows Credential Manager.</li>
+            <li>Account screen with data used and renewal date.</li>
+            <li>First working build: connects through the Sydney server and puts your proxy settings back after a crash.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+  </div>
+
+  <figure class="shot">
+    <div class="frame">
+      <img class="dark-img" src="img/app-dark.png" width="380" height="600" alt="The isotunnel app, connected to the Sydney server">
+      <img class="light-img" src="img/app-light.png" width="380" height="600" alt="The isotunnel app, connected to the Sydney server">
+    </div>
+    <figcaption>Example screen.</figcaption>
+  </figure>
+</main>
+
+<footer class="wrap bottom">
+  <span>isotunnel</span>
+  <a href="#changelog" class="nav-changelog">log</a>
+  <a href="privacy.html">privacy</a>
+  <a href="terms.html">terms</a>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    document.getElementById("theme").addEventListener("click", function () {
+      var cur = root.getAttribute("data-theme") ||
+        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var next = cur === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("isotunnel-site-theme", next); } catch (e) {}
+    });
+
+    // Style Studio hook: only on a local copy (file:// or localhost), never on the live site.
+    if (location.protocol === "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+      // Every piece of visible text gets a stable key: "<section id>.<tag><n>", in document order.
+      var SEL = "header a, h1, h2, h3, p, dt, dd, li:not(:has(ul)), time, figcaption, .price, .btn, footer span, footer a";
+      var nodes = {}, originals = {}, counts = {};
+      document.querySelectorAll(SEL).forEach(function (el) {
+        var scope = el.closest("section[id], header, footer, figure");
+        var name = scope ? (scope.id || scope.tagName.toLowerCase()) : "page";
+        var tag = el.tagName.toLowerCase(), c = (counts[name + tag] = (counts[name + tag] || 0) + 1);
+        var key = name + "." + tag + c;
+        nodes[key] = el; originals[key] = el.textContent.trim().replace(/\s+/g, " ");
+        el.addEventListener("input", function () {
+          window.parent.postMessage({ type: "isotunnel-site-text", key: key, value: el.textContent }, "*");
+        });
+      });
+      var editing = false;
+      document.addEventListener("click", function (e) { if (editing && e.target.closest("a")) e.preventDefault(); }, true);
+
+      window.addEventListener("message", function (e) {
+        var d = e.data;
+        if (!d || d.type !== "isotunnel-site-style") return;
+        var s = document.getElementById("studio-css");
+        if (!s) { s = document.createElement("style"); s.id = "studio-css"; document.head.appendChild(s); }
+        s.textContent = String(d.css || "") + (d.editing ? "\n[contenteditable]{outline:1px dashed color-mix(in srgb, currentColor 35%, transparent);outline-offset:3px;cursor:text}[contenteditable]:focus{outline-style:solid}" : "");
+        for (var a in d.attrs) root.setAttribute("data-" + a, d.attrs[a]);
+        if (d.theme === "system") root.removeAttribute("data-theme");
+        else if (d.theme) root.setAttribute("data-theme", d.theme);
+        editing = !!d.editing;
+        var text = d.text || {};
+        for (var k in nodes) {
+          var el = nodes[k];
+          if (el !== document.activeElement) el.textContent = typeof text[k] === "string" ? text[k] : originals[k];
+          if (editing) el.setAttribute("contenteditable", "plaintext-only"); else el.removeAttribute("contenteditable");
+        }
+      });
+      if (window.parent !== window) window.parent.postMessage({ type: "isotunnel-site-ready", originals: originals }, "*");
+    }
+  })();
+</script>
+</body>
+</html>

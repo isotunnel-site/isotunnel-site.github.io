@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en-AU" data-links="plain">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · isotunnel</title>
+<meta name="description" content="What isotunnel records, why, and for how long.">
+<link rel="preload" href="fonts/merriweather-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script>
+  try {
+    var t = localStorage.getItem("isotunnel-site-theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+</head>
+<body>
+<header class="top"><div class="wrap top-inner"><a class="brand" href="./">isotunnel</a></div></header>
+
+<main class="wrap doc">
+  <h1>Privacy policy</h1>
+  <p class="dim">Last updated 27 October 2026</p>
+
+  <p>isotunnel is a VPN. The point of it is that your browsing stays yours, so we keep as little as we can and say exactly what that is. This policy covers the isotunnel app, the VPN servers and this website. It's run from New South Wales, Australia ("we").</p>
+
+  <h2>The short version</h2>
+  <ul>
+    <li>We don't record the websites you visit, the apps you use, your DNS lookups or the contents of your traffic.</li>
+    <li>We don't keep logs of your IP address.</li>
+    <li>We don't need your name. Your account is a random access key.</li>
+    <li>To run your account we keep your plan, its expiry date and how much data you've used.</li>
+  </ul>
+
+  <h2>What we keep</h2>
+  <dl class="facts">
+    <dt>Your account</dt>
+    <dd>A random account name, your access key, your plan's expiry date and data allowance, and whether the account is active.</dd>
+    <dt>Data used</dt>
+    <dd>How much data your account has used, recorded in 10-minute totals, plus the last time it was online. This is a number of bytes, never what the data was. We use it to apply your data allowance and show usage in the app.</dd>
+    <dt>Payments</dt>
+    <dd>The payment provider's reference for each payment, kept on your account so a payment is never applied twice. For card subscriptions, the provider's customer reference, so you can manage or cancel the subscription.</dd>
+  </dl>
+
+  <h2>What we don't keep</h2>
+  <p>The VPN server doesn't write a log of the connections it carries, so there is no record of the sites you visit. While you're connected, the server necessarily knows your current IP address in order to send traffic back to you. It isn't written to a log or stored with your account.</p>
+  <p>Our server software is set to log only warnings and errors, not individual requests. Its logs are limited in size and rotate automatically, so older entries are overwritten.</p>
+
+  <h2>The Cloudflare route</h2>
+  <p>Where our server's address is blocked, the app can reach it through Cloudflare's network instead. This happens when you choose Cloudflare as the way in, or on Automatic when the direct way in doesn't get through. The line on the app's Connect screen shows which way you're connected.</p>
+  <p>On this route your VPN traffic passes through Cloudflare on its way to our server, so Cloudflare handles it under <a href="https://www.cloudflare.com/privacypolicy/">its own privacy policy</a>:</p>
+  <ul>
+    <li>Cloudflare sees your IP address, when you're connected and how much data you send.</li>
+    <li>Cloudflare opens the outer layer of encryption to pass your traffic on. That means it could see the addresses of the sites you reach, and the contents of any site that doesn't use HTTPS. Pages that use HTTPS, which is almost all of them, stay encrypted between you and the site.</li>
+    <li>Our server sees a Cloudflare address, not yours. We don't log the address Cloudflare passes on.</li>
+  </ul>
+  <p>If you'd rather Cloudflare never carried your traffic, choose Port 443 as the way in (Your route, then Edit route).</p>
+
+  <h2>The network test</h2>
+  <p>Before you buy, the app can test whether isotunnel works on your network. The button is on the sign-in screen and needs no account. The test connects to our server on each route and shows you the result. To tell what your network blocks, it also briefly connects to Bing (Microsoft), Cloudflare and DigitalOcean, as visiting any website would, so they see your IP address under their own policies. Nothing is sent to them.</p>
+  <p>No report leaves your computer unless you press Send report, whatever the result. If you send it, the report contains:</p>
+  <ul>
+    <li>The result for each route, and how each connection failed (for example cut off, or timed out).</li>
+    <li>Whether a few well-known places can be reached from your network (a big website, Cloudflare, another hosting company, and our server on another port), so we can tell what your network blocks.</li>
+    <li>How far your computer's clock is off, your connection type (Wi-Fi, cable or mobile), whether IPv6 works, and whether a proxy or another VPN is turned on. Never their names or addresses.</li>
+    <li>The connection log lines from the test, with the sites you visit, your access key, IP addresses and your user folder removed.</li>
+    <li>The app version, your operating system, your CPU type and your language.</li>
+    <li>The time of the test, and whether our test service was available.</li>
+  </ul>
+  <p>You can read the report in the app before you send it. When it arrives, our server adds your approximate location (your city and state or region, which Cloudflare works out from your connection) and your network provider, which it looks up in a table on our own server. We don't keep your IP address. It's used for that lookup and to limit how many reports one connection can send, then dropped.</p>
+  <p>The report reaches our server through Cloudflare, which sees your IP address, like when you buy. Our server posts it to a Discord channel we run, and keeps it for 90 days on a private page only we can see, where we work through the problems reports show. After 90 days it's deleted. If the app can't reach our server, it keeps the report on your computer, because you pressed Send, and tries again when the app next opens, for up to 7 days. Then it deletes it.</p>
+
+  <h2>Payments</h2>
+  <p>Payments are handled by the payment providers, under their own privacy policies. We never see your card number.</p>
+  <ul>
+    <li><b>Crypto</b> is processed by OxaPay. They see the payment's details on the blockchain, which is public by nature.</li>
+    <li><b>Cards</b> are processed by Stripe, who collect the card details and an email address for receipts.</li>
+  </ul>
+
+  <h2>The app</h2>
+  <p>The app keeps your access key in your operating system's secure store (Windows Credential Manager, or the keyring on Linux), and your settings on your own computer. It contains no analytics or tracking. It contacts our servers to check your account, to connect, and to check for app updates. Those requests are not logged per request. It also sends a network test report, but only when you press Send report (see The network test above). Update checks and the app's settings file come from this website, so the hosting note below applies to them.</p>
+  <p>In full device mode, the app sends your DNS lookups through the VPN to Cloudflare's public resolver (1.1.1.1, or 1.1.1.2 when blocking is on, which also blocks known malware sites). Cloudflare sees our server's address, not yours. In normal mode our server looks names up itself and doesn't record them.</p>
+
+  <h2>This website</h2>
+  <p>The site uses no cookies, analytics or trackers. It remembers your light or dark theme, and your most recent order link, in your own browser. The site is hosted on GitHub Pages, which keeps standard request logs, including IP addresses, under its own policy. The checkout service runs on our own server and is reached through Cloudflare, which sees your IP address when you buy. The checkout service doesn't log IP addresses.</p>
+
+  <h2>Who else is involved</h2>
+  <ul>
+    <li><b>DigitalOcean</b> runs our Sydney VPN server and the checkout service (Sydney, Australia).</li>
+    <li><b>Vultr</b> runs our Tokyo VPN server (Tokyo, Japan).</li>
+    <li><b>GitHub</b> hosts this website (United States).</li>
+    <li><b>Cloudflare</b> provides our domain's DNS, sits in front of the checkout service, carries VPN traffic for people on the Cloudflare route, and answers DNS lookups in full device mode (see above).</li>
+    <li><b>Discord</b> delivers the network test reports to us and stores them.</li>
+    <li><b>OxaPay</b> and <b>Stripe</b> process payments.</li>
+  </ul>
+  <p>We don't sell or share your information with anyone else, and we don't use it for advertising.</p>
+
+  <h2>How long we keep it</h2>
+  <p>Account details stay while your account exists. We delete accounts 90 days after they expire, or sooner if you ask. Payment references are kept as long as the law requires for tax records.</p>
+
+  <h2>Requests from authorities</h2>
+  <p>If we receive a lawful request for information, we can only hand over what we have, which is described above. We have no record of what you did online.</p>
+
+  <h2>Your choices</h2>
+  <p>You can ask to see the information we hold about your account, or ask us to delete it, by emailing <a href="mailto:support@isotunnel.com">support@isotunnel.com</a> from any address and including your access key. Deleting your account ends the service.</p>
+
+  <h2>Changes</h2>
+  <p>If we change what we keep, we'll update this page and the date at the top before the change takes effect.</p>
+</main>
+
+<footer class="wrap bottom">
+  <a href="./">isotunnel</a>
+  <a href="privacy.html">privacy</a>
+  <a href="terms.html">terms</a>
+</footer>
+</body>
+</html>
