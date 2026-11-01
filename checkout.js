@@ -59,6 +59,7 @@
         if ($("hero-price")) $("hero-price").textContent = money(p.priceUsd, "USD") + " a month with crypto. Windows and Mac.";
       }
       buy.hidden = $("renew-crypto").hidden = !crypto;
+      if (p.emailKeys && p.card) $("forgot-form").hidden = false;
       if (crypto && !p.card) $("pay-note").textContent = "Pay in USDT, Bitcoin or another major coin. Your access key appears on the next page as soon as the payment confirms.";
     }).catch(function () {
       // The payment service isn't answering: say so up front instead of failing on a click.
@@ -86,6 +87,18 @@
       busy(b, "Creating invoice…", function () {
         return api("/api/checkout", { renewKey: $("renew-key").value.trim() }).then(function (d) {
           remember(d.orderUrl.split("#")[1]); location.href = d.orderUrl;
+        });
+      });
+    });
+
+    $("forgot-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var send = $("forgot-send"), note = $("forgot-note");
+      note.textContent = "";
+      busy(send, "Sending…", function () {
+        return api("/api/card/forgot", { email: $("forgot-email").value.trim() }).then(function (d) {
+          note.textContent = d.message || "If a purchase used that address, the key is on its way.";
+          send.disabled = false; send.textContent = "Email me my key";
         });
       });
     });

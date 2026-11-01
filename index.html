@@ -126,6 +126,14 @@
             </div>
             <p class="note" id="manage-note">Card subscriptions renew by themselves. Manage opens Stripe, where you can change your card or cancel.</p>
           </form>
+          <form id="forgot-form" class="renew-form" hidden>
+            <label for="forgot-email" class="note">Lost your key? Enter the email you paid with and we'll send it there.</label>
+            <input id="forgot-email" class="input" type="email" autocomplete="email" spellcheck="false" required>
+            <div class="row-btns">
+              <button class="btn quiet" id="forgot-send" type="submit">Email me my key</button>
+            </div>
+            <p class="note" id="forgot-note" role="status"></p>
+          </form>
         </details>
       </div>
     </div>
@@ -142,7 +150,7 @@
         <div><h3>Will it be fast for me?</h3><p>It's quickest near a server: Sydney for Australia and New Zealand, Tokyo for Japan. Choose the nearest one with Change location in the app.</p></div>
         <div><h3>Does it cover every app?</h3><p>Browsers and most apps by default. Turn on full device mode in Settings and every app goes through it, games included. It asks for administrator permission when you connect.</p></div>
         <div><h3>What if I use up my data?</h3><p>The VPN pauses until your allowance refills next month, or pay for another month for a fresh allowance straight away. The app shows how much you've used.</p></div>
-        <div><h3>What if I lose my key?</h3><p>If the app is still signed in, open Account and press Show next to Access key: you can copy it there. If not, email <a href="mailto:support@isotunnel.com">support@isotunnel.com</a> with when you paid and we'll try to find it. We never see your card number, so we can't look you up by card, and an older payment may not be traceable. Keep your key somewhere safe, like a password manager.</p></div>
+        <div><h3>What if I lose my key?</h3><p>If the app is still signed in, open Account and press Show next to Access key: you can copy it there. If not, open "Already have a key?" in the box where you buy, enter the email you paid with, and we'll send the key there. (Only that address gets it, and only if a card payment used it.) If that doesn't work, email <a href="mailto:support@isotunnel.com">support@isotunnel.com</a> with when you paid. We never see your card number, so we can't look you up by card. Keep your key somewhere safe, like a password manager.</p></div>
         <div><h3>What if it can't connect?</h3><p>Turn on troubleshooting mode in Settings and send us the report it makes. The sites you visit and your key are left out of it.</p></div>
         <div><h3>What if the app crashes while I'm connected?</h3><p>Your original settings are put back straight away. The one exception is on purpose: in full device mode with the kill switch on, the internet stays blocked until isotunnel reconnects.</p></div>
       </div>

@@ -36,6 +36,23 @@
       : el("span");
   }
 
+  // "Email me this key": only offered when the server has email set up, and it only ever sends to the address
+  // the card payment used. The reply says where it went (first letter and domain only).
+  function offerEmail(p, row, note) {
+    fetch(API + "/api/plan").then(function (r) { return r.json(); }).then(function (plan) {
+      if (!plan.emailKeys) return;
+      var btn = el("button", { class: "btn quiet", type: "button", text: "Email me this key" });
+      btn.addEventListener("click", function () {
+        btn.disabled = true; note.textContent = "";
+        fetch(API + "/api/card/email-key", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ o: p.o, s: p.s }) })
+          .then(function (r) { return r.json().catch(function () { return {}; }).then(function (x) { if (!r.ok) throw new Error(x.error || "Couldn't send it. Try again in a minute."); return x; }); })
+          .then(function (x) { note.textContent = "Sent to " + x.to + ". It can take a minute; check spam too."; btn.disabled = false; })
+          .catch(function (err) { note.textContent = err.message; btn.disabled = false; });
+      });
+      row.appendChild(btn); row.hidden = false;
+    }).catch(function () {});
+  }
+
   function show(d, p) {
     var keep = el("p", { class: "note", text: "Keep this page's link. It's your receipt, and it will show your key again if you need it." });
     switch (d.state) {
@@ -69,9 +86,15 @@
             var s = getSelection(); s.removeAllRanges(); s.addRange(r); copy.textContent = "Press Ctrl+C";
           });
         });
+        var mailRow = el("div", { class: "keybox" });
+        var mailNote = el("p", { class: "note" });
+        mailRow.hidden = true;
+        if (d.card) offerEmail(p, mailRow, mailNote);
         render("You're in", [
           el("p", { text: "Here's your access key. Paste it into the isotunnel app to sign in." }),
           el("div", { class: "keybox" }, [key, copy]),
+          mailRow,
+          mailNote,
           el("p", { class: "dim", text: d.card
             ? "Your card subscription renews each month. You can change the card or cancel any time under \"Renew or manage\" on the home page."
             : "Your account runs until " + longDate(d.expire) + "." }),

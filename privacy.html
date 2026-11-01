@@ -76,6 +76,7 @@
     <li><b>Crypto</b> is processed by OxaPay. They see the payment's details on the blockchain, which is public by nature.</li>
     <li><b>Cards</b> are processed by Stripe, who collect the card details and an email address for receipts.</li>
   </ul>
+  <p>We don't keep your email address. If you ask us to email your key (on the page after paying, or with "Forgot your key?"), our server looks the address up in Stripe and sends one message through Resend, our email provider. We hold the address in memory for 15 minutes to stop repeat sends and keep nothing after that, but Resend keeps a short log of sent messages, which includes the key. The key goes only to the address Stripe holds for that payment. Email isn't private in transit, so if you'd rather not have the key in your inbox, don't use it: copy the key from the page after paying, or from Account in the app.</p>
 
   <h2>The app</h2>
   <p>The app keeps your access key in your operating system's secure store (Windows Credential Manager, or the keyring on Linux), and your settings on your own computer. It contains no analytics or tracking. It contacts our servers to check your account, to connect, and to check for app updates. Those requests are not logged per request. It also sends a network test report, but only when you press Send report (see The network test above). Update checks and the app's settings file come from this website, so the hosting note below applies to them.</p>
