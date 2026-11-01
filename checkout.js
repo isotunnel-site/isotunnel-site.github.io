@@ -75,7 +75,12 @@
 
     card.addEventListener("click", function () {
       busy(card, "Opening checkout…", function () {
-        return api("/api/card/checkout", {}).then(function (d) { remember("pay=card&o=" + d.nonce); location.href = d.url; });
+        return api("/api/card/checkout", {}).then(function (d) {
+          // The session ID is in Stripe's checkout address; without it the order page can't find a card order.
+          var s = (/\/(cs_(?:live|test)_[A-Za-z0-9]+)/.exec(d.url) || [])[1];
+          remember("pay=card&o=" + d.nonce + (s ? "&s=" + s : ""));
+          location.href = d.url;
+        });
       });
     });
 

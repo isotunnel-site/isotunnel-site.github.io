@@ -9,6 +9,8 @@
     var h = location.hash.slice(1);
     if (!h) { try { h = localStorage.getItem("isotunnel-last-order") || ""; } catch (e) {} }
     var p = new URLSearchParams(h);
+    // Stripe's return link is the only place a card order's session ID shows up, so keep the whole link.
+    if (location.hash && /^[0-9a-f]{32}$/.test(p.get("o") || "")) { try { localStorage.setItem("isotunnel-last-order", h); } catch (e) {} }
     if (h && !location.hash) history.replaceState(null, "", "#" + h);
     return { card: p.get("pay") === "card", o: p.get("o") || "", t: p.get("t") || "", s: p.get("s") || "", pay: p.get("p") || "" };
   }
