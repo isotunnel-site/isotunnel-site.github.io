@@ -49,8 +49,8 @@
       <h1>Get online from networks that block VPNs.</h1>
       <p class="lede">Your connection carries a real website's handshake, so the network you're on sees an ordinary visit to a university site. When a way in is blocked, the app tries the others by itself.</p>
       <div class="row-btns">
-        <a class="btn go" href="#get">Download isotunnel</a>
-        <span class="note" id="hero-price">US$3.50 a month, 150 GB. Windows and Mac.</span>
+        <a class="btn go" href="#download">Download and test free</a>
+        <span class="note" id="hero-price">Check it gets through your network before you pay. Then US$3.50 a month, 150 GB.</span>
       </div>
     </div>
   </section>
@@ -95,18 +95,9 @@
     <div class="body">
       <span class="station">Get isotunnel</span>
       <div class="get">
-        <div class="plan">
-          <span class="price" id="price">US$3.50 a month by card, 150 GB of data</span>
-          <span class="note" id="card-price">Renews every month until you cancel. Up to 3 devices.</span>
-          <div class="row-btns">
-            <button class="btn go" id="buy-card" type="button">Pay by card</button>
-            <button class="btn quiet" id="buy" type="button" hidden>Pay with crypto</button>
-          </div>
-          <p class="note" id="pay-note">Checkout is by Stripe. Your access key appears on the next page as soon as the payment goes through.</p>
-          <p class="form-error" id="buy-error" role="alert" hidden></p>
-        </div>
         <div class="download" id="download">
-          <p>Before you buy, download the app and press <strong>Test this network</strong>. It tries every way in from your own network and tells you if isotunnel works there.</p>
+          <span class="step"><b>1</b>Test your network <span class="free">free</span></span>
+          <p>Download the app and press <strong>Test this network</strong>. It tries every way in from where you are and tells you if isotunnel gets through. No key or payment needed.</p>
           <div class="row-btns">
             <a class="btn go" id="dl-x64" href="updates/0.2.6/isotunnel_0.2.6_x64-setup.exe" download>Download for Windows</a>
             <a class="btn quiet" id="dl-arm64" href="updates/0.2.6/isotunnel_0.2.6_arm64-setup.exe" download>Windows on ARM</a>
@@ -114,6 +105,18 @@
           </div>
           <p class="note" id="dl-note">Version 0.2.6 for Windows 10 and 11, and macOS 11 or later.</p>
           <p class="note" id="dl-help">Most PCs need the first one. Windows on ARM is for Snapdragon laptops, such as the Surface Laptop 7. Windows may say the publisher is unknown: choose More info, then Run anyway.</p>
+        </div>
+        <div class="plan" id="plan">
+          <span class="step"><b>2</b>If it got through, buy</span>
+          <span class="price" id="price">US$3.50 a month by card, 150 GB of data</span>
+          <span class="note" id="card-price">Renews every month until you cancel. Up to 3 devices.</span>
+          <label class="tick"><input type="checkbox" id="tested"> I ran Test this network and it got through.</label>
+          <div class="row-btns">
+            <button class="btn go" id="buy-card" type="button">Pay by card</button>
+            <button class="btn quiet" id="buy" type="button" hidden>Pay with crypto</button>
+          </div>
+          <p class="note" id="pay-note">Checkout is by Stripe. Your access key appears on the next page as soon as the payment goes through.</p>
+          <p class="form-error" id="buy-error" role="alert" hidden></p>
         </div>
         <details class="renew">
           <summary>Already have a key, or lost it? Renew or manage</summary>

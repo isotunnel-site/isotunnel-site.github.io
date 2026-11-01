@@ -35,8 +35,19 @@
   function remember(fragment) { try { localStorage.setItem("isotunnel-last-order", fragment); } catch (e) {} }
 
   document.addEventListener("DOMContentLoaded", function () {
-    var buy = $("buy"), card = $("buy-card"), manage = $("manage-card");
+    var buy = $("buy"), card = $("buy-card"), manage = $("manage-card"), tested = $("tested"), plan = $("plan");
     if (!buy) return;
+
+    // Pay stays dim until the buyer says Test this network got through (a back-navigation can restore the tick).
+    function syncTested() { plan.classList.toggle("tested", tested.checked); if (tested.checked) showError(""); }
+    tested.addEventListener("change", syncTested);
+    syncTested();
+    function untested() {
+      if (tested.checked) return false;
+      showError("Run Test this network in the app first, then tick the box above.");
+      tested.focus();
+      return true;
+    }
 
     // The page starts card-first (Stripe); the plan says what's really on offer. Prices come from the API:
     // the card price is Stripe's own.
@@ -49,14 +60,14 @@
         $("price").textContent = cardMoney + " a month by card" + data;
         $("card-price").textContent = "Renews every month until you cancel." + devices +
           (crypto ? " Or " + money(p.priceUsd, "USD") + " a month with crypto, which doesn't renew by itself." : "");
-        if ($("hero-price")) $("hero-price").textContent = cardMoney + " a month" + (p.dataLimitGb > 0 ? ", " + p.dataLimitGb + " GB" : "") + ". Windows and Mac.";
+        if ($("hero-price")) $("hero-price").textContent = "Check it gets through your network before you pay. Then " + cardMoney + " a month" + (p.dataLimitGb > 0 ? ", " + p.dataLimitGb + " GB" : "") + ".";
       } else {
         // No card payments: crypto leads.
         $("price").textContent = money(p.priceUsd, "USD") + " a month with crypto" + data;
         $("card-price").textContent = devices.trim();
         card.hidden = manage.hidden = $("manage-note").hidden = true;
         buy.classList.add("go"); buy.classList.remove("quiet");
-        if ($("hero-price")) $("hero-price").textContent = money(p.priceUsd, "USD") + " a month with crypto. Windows and Mac.";
+        if ($("hero-price")) $("hero-price").textContent = "Check it gets through your network before you pay. Then " + money(p.priceUsd, "USD") + " a month with crypto.";
       }
       buy.hidden = $("renew-crypto").hidden = !crypto;
       if (p.emailKeys && p.card) $("forgot-form").hidden = false;
@@ -68,12 +79,14 @@
     });
 
     buy.addEventListener("click", function () {
+      if (untested()) return;
       busy(buy, "Creating invoice…", function () {
         return api("/api/checkout", {}).then(function (d) { remember(d.orderUrl.split("#")[1]); location.href = d.orderUrl; });
       });
     });
 
     card.addEventListener("click", function () {
+      if (untested()) return;
       busy(card, "Opening checkout…", function () {
         return api("/api/card/checkout", {}).then(function (d) {
           // The session ID is in Stripe's checkout address; without it the order page can't find a card order.

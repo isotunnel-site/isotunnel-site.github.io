@@ -150,6 +150,13 @@ h3 { font-size: 22px; line-height: 1.2; }
 .plan { flex: 1 1 340px; min-width: 0; background: var(--surface); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
 .price { font-size: 24px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.25; }
 .download { flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 14px; padding-top: 4px; }
+/* Test first, then buy: numbered stations, and Pay stays dim until the buyer says the test got through. */
+.step { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; }
+.step b { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; border: 3px solid var(--line-443); font-size: 13px; line-height: 1; }
+.step .free { font-weight: 600; color: var(--dim); }
+.tick { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; cursor: pointer; }
+.tick input { width: 18px; height: 18px; margin: 2px 0 0; flex: none; accent-color: var(--line-443); }
+.plan:not(.tested) #buy-card, .plan:not(.tested) #buy { opacity: 0.45; }
 .form-error { margin: 0; color: var(--bad); font-weight: 600; }
 .renew { flex-basis: 100%; }
 .renew summary { cursor: pointer; font-weight: 600; color: var(--link); width: fit-content; }
