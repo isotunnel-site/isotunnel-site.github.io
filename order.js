@@ -101,6 +101,7 @@
             ? "Your card subscription renews each month. You can change the card or cancel any time under \"Renew or manage\" on the home page."
             : "Your account runs until " + longDate(d.expire) + "." }),
           el("p", { class: "note", text: "Treat the key like a password: anyone who has it can use your account." }),
+          el("p", { class: "dim" }, [document.createTextNode("On a phone, or prefer Hiddify? "), el("a", { href: "apps.html", text: "Use your key in another app" }), document.createTextNode(".")]),
           keep,
         ]);
         return false;

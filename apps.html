@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-AU" data-links="plain">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Use another app · isotunnel</title>
+<meta name="description" content="Use your isotunnel account in Hiddify and other apps, on Android, iPhone, Windows, Mac and Linux.">
+<meta name="isotunnel-api" content="https://api.isotunnel.com">
+<link rel="preload" href="fonts/overpass-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/overpass-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script>
+  try {
+    var t = localStorage.getItem("isotunnel-site-theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+<style>
+  .doc ol { margin: 0; padding-left: 1.3em; display: grid; gap: 12px; }
+  .sub-out { display: grid; gap: 12px; margin-top: 22px; }
+  .sub-out + .note { margin-top: 16px; }
+  .sub-out .input { font-size: 14px; }
+  .qr { width: min(260px, 100%); border-radius: var(--radius); overflow: hidden; }
+  .qr svg { display: block; width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap top-inner"><a class="brand" href="./">isotunnel</a></div></header>
+
+<main class="wrap doc">
+  <h1>Use another app</h1>
+  <p>Your isotunnel account also works in <strong>Hiddify</strong> and other apps that take a subscription link,
+  on Android, iPhone, Windows, Mac and Linux. Until isotunnel has its own phone app, this is how to use it on your phone.</p>
+
+  <h2>1. Get Hiddify</h2>
+  <p>It's free. Search for <strong>Hiddify</strong> in Google Play or the App Store, or download it from
+  <a href="https://github.com/hiddify/hiddify-app/releases">its releases on GitHub</a>.</p>
+
+  <h2>2. Make your link</h2>
+  <form id="sub-form" class="renew-form">
+    <label for="sub-key" class="note">Your access key (the one starting it1., from your order page or the app's Account screen)</label>
+    <input id="sub-key" class="input" type="password" autocomplete="off" spellcheck="false" required>
+    <div class="row-btns"><button class="btn go" type="submit">Make my link</button></div>
+    <p class="form-error" id="sub-error" role="alert" hidden></p>
+  </form>
+  <div class="sub-out" id="sub-out" hidden>
+    <label for="sub-link" class="note">Your subscription link</label>
+    <input id="sub-link" class="input" type="text" readonly spellcheck="false">
+    <div class="row-btns">
+      <button class="btn" id="sub-copy" type="button">Copy link</button>
+      <a class="btn quiet" id="sub-open" href="#">Open in Hiddify</a>
+      <button class="btn quiet" id="sub-qr-show" type="button">Show QR code</button>
+    </div>
+    <div class="qr" id="sub-qr" hidden></div>
+    <p class="note" id="sub-qr-note" hidden>On your phone, open Hiddify, tap <strong>+</strong> and choose <strong>Scan QR code</strong>.</p>
+  </div>
+  <p class="note">The link is made here in your browser. Your key isn't sent anywhere until an app uses the link.</p>
+
+  <h2>3. Add it in the app</h2>
+  <ol>
+    <li>On this device: press <strong>Open in Hiddify</strong>. Or copy the link, open Hiddify, tap <strong>+</strong> and choose <strong>Add from clipboard</strong>.</li>
+    <li>On your phone: press <strong>Show QR code</strong> here, then scan it in Hiddify (<strong>+</strong>, then <strong>Scan QR code</strong>).</li>
+    <li>Pick isotunnel's profile and press connect. Hiddify tests the servers and uses the quickest.</li>
+  </ol>
+
+  <h2>Other apps</h2>
+  <p>Any app that takes a VLESS or Hysteria2 subscription link works the same way: add a subscription and paste the link.
+  For example v2rayN (Windows), v2rayNG (Android), and Streisand or Shadowrocket (iPhone).</p>
+
+  <h2>Good to know</h2>
+  <ul>
+    <li>Each app you add it to counts as one of your account's 3 devices.</li>
+    <li>Keep the link private, like your key: anyone who has it can use your account.</li>
+    <li>The app refreshes the server list by itself every 12 hours and shows how much data you've used.</li>
+    <li>Ad blocking, split tunneling and the kill switch are isotunnel app features. In another app, use that app's own settings.</li>
+    <li>Lost your key? Use "Already have a key, or lost it?" on the <a href="./#get">home page</a>.</li>
+  </ul>
+</main>
+
+<footer class="wrap bottom">
+  <a href="./">isotunnel</a>
+  <a href="privacy.html">privacy</a>
+  <a href="terms.html">terms</a>
+</footer>
+<script src="vendor/qrcode-generator-1.4.4.js"></script>
+<script src="apps.js"></script>
+</body>
+</html>

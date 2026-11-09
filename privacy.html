@@ -20,7 +20,7 @@
 
 <main class="wrap doc">
   <h1>Privacy policy</h1>
-  <p class="dim">Last updated 27 October 2026</p>
+  <p class="dim">Last updated 9 November 2026</p>
 
   <p>isotunnel is a VPN. The point of it is that your browsing stays yours, so we keep as little as we can and say exactly what that is. This policy covers the isotunnel app, the VPN servers and this website. It's run from New South Wales, Australia ("we").</p>
 
@@ -38,6 +38,8 @@
     <dd>A random account name, your access key, your plan's expiry date and data allowance, and whether the account is active.</dd>
     <dt>Data used</dt>
     <dd>How much data your account has used, recorded in 10-minute totals, plus the last time it was online. This is a number of bytes, never what the data was. We use it to apply your data allowance and show usage in the app.</dd>
+    <dt>Devices</dt>
+    <dd>To apply your plan's device limit, an ID for each device that uses your account, the kind of system it reports and when it was added. The isotunnel app sends a scrambled ID (not your machine's own ID) and coarse details such as "Windows" and "PC". Other apps, such as Hiddify, send their own ID and may include the device's model.</dd>
     <dt>Payments</dt>
     <dd>The payment provider's reference for each payment, kept on your account so a payment is never applied twice. For card subscriptions, the provider's customer reference, so you can manage or cancel the subscription.</dd>
   </dl>
@@ -69,6 +71,9 @@
   </ul>
   <p>You can read the report in the app before you send it. When it arrives, our server adds your approximate location (your city and state or region, which Cloudflare works out from your connection) and your network provider, which it looks up in a table on our own server. We don't keep your IP address. It's used for that lookup and to limit how many reports one connection can send, then dropped.</p>
   <p>The report reaches our server through Cloudflare, which sees your IP address, like when you buy. Our server posts it to a Discord channel we run, and keeps it for 90 days on a private page only we can see, where we work through the problems reports show. After 90 days it's deleted. If the app can't reach our server, it keeps the report on your computer, because you pressed Send, and tries again when the app next opens, for up to 7 days. Then it deletes it.</p>
+
+  <h2>Other apps</h2>
+  <p>You can use your account in another app, such as Hiddify, with a subscription link (see <a href="apps.html">use another app</a>). The page that makes the link does it in your browser and sends nothing. The app then fetches your server list from our checkout service through Cloudflare, which sees your IP address, as when you buy. Our service passes the request to our server and doesn't log the link or your IP address. It holds your IP address in memory for up to an hour, only to limit how often one connection can fetch the list, then drops it. The other app is covered by its own privacy policy, not this one.</p>
 
   <h2>Payments</h2>
   <p>Payments are handled by the payment providers, under their own privacy policies. We never see your card number.</p>
