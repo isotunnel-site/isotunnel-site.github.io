@@ -30,7 +30,7 @@
     <nav aria-label="Page">
       <a href="#ways">Ways in</a>
       <a href="#sees">What the network sees</a>
-      <a href="#get">Download</a>
+      <a href="#get" class="keep">Download</a>
       <a href="#questions">Questions</a>
       <a href="#changelog">Changelog</a>
       <button class="theme" id="theme" type="button" aria-label="Switch between light and dark">
@@ -44,14 +44,21 @@
 
   <section class="stop c-443" id="you">
     <div class="rail" aria-hidden="true"><span class="mark"></span><span class="seg"></span></div>
-    <div class="body">
-      <span class="station">You</span>
-      <h1>Get online from networks that block VPNs.</h1>
-      <p class="lede">Your connection carries a real website's handshake, so the network you're on sees an ordinary visit to a university site. When a way in is blocked, the app tries the others by itself.</p>
-      <div class="row-btns">
-        <a class="btn go" href="#download">Download and test free</a>
-        <span class="note" id="hero-price">Check it gets through your network before you pay. Then US$3.50 a month, 150 GB.</span>
+    <div class="body hero">
+      <div class="hero-text">
+        <span class="station">You</span>
+        <h1>Get online from networks that block VPNs.</h1>
+        <p class="lede">Your connection carries a real website's handshake, so the network you're on sees an ordinary visit to a university site. When a way in is blocked, the app tries the others by itself.</p>
+        <div class="row-btns">
+          <a class="btn go" href="#download">Download and test free</a>
+          <span class="note" id="hero-price">Check it gets through your network before you pay. Then US$3.50 a month, 150 GB.</span>
+        </div>
       </div>
+      <!-- The app itself, connected: the same line, in the theme the page is in. -->
+      <figure class="app-shot">
+        <img class="shot-light" src="img/app-home-light.png" width="380" height="600" alt="The isotunnel app, connected: a line from You through Port 443 and Sydney to the web, at 4.2 MB/s">
+        <img class="shot-dark" src="img/app-home-dark.png" width="380" height="600" alt="The isotunnel app, connected: a line from You through Port 443 and Sydney to the web, at 4.2 MB/s">
+      </figure>
     </div>
   </section>
 
@@ -99,11 +106,11 @@
           <span class="step"><b>1</b>Test your network <span class="free">free</span></span>
           <p>Download the app and press <strong>Test this network</strong>. It tries every way in from where you are and tells you if isotunnel gets through. No key or payment needed.</p>
           <div class="row-btns">
-            <a class="btn go" id="dl-x64" href="updates/0.2.7/isotunnel_0.2.7_x64-setup.exe" download>Download for Windows</a>
-            <a class="btn quiet" id="dl-arm64" href="updates/0.2.7/isotunnel_0.2.7_arm64-setup.exe" download>Windows on ARM</a>
+            <a class="btn go" id="dl-x64" href="updates/0.2.8/isotunnel_0.2.8_x64-setup.exe" download>Download for Windows</a>
+            <a class="btn quiet" id="dl-arm64" href="updates/0.2.8/isotunnel_0.2.8_arm64-setup.exe" download>Windows on ARM</a>
             <a class="btn quiet" href="mac.html">Mac</a>
           </div>
-          <p class="note" id="dl-note">Version 0.2.7 for Windows 10 and 11, and macOS 11 or later.</p>
+          <p class="note" id="dl-note">Version 0.2.8 for Windows 10 and 11, and macOS 11 or later.</p>
           <p class="note" id="dl-help">Most PCs need the first one. Windows on ARM is for Snapdragon laptops, such as the Surface Laptop 7. Windows may say the publisher is unknown: choose More info, then Run anyway.</p>
           <p class="note">On a phone, or already use Hiddify? <a href="apps.html">Use your account in another app</a>.</p>
         </div>
@@ -184,6 +191,15 @@
       <span class="station">Changelog</span>
       <ol class="log" reversed>
         <li>
+          <time datetime="2026-11-10">10 Nov 2026</time>
+          <ul>
+            <li>Version 0.2.8: a bolder line that shows your download speed, as dots climbing from the web to you and the rate beside the web.</li>
+            <li>When a network blocks the connection, the app says so in one sentence, with Test this network right beside Try again. Account shows the days your plan has left.</li>
+            <li>The network test draws each way in as it runs, and Speed mode now stays in the fastest city, so the app names one place and its real address.</li>
+            <li>This page shows the app itself and fits a phone screen.</li>
+          </ul>
+        </li>
+        <li>
           <time datetime="2026-11-02">2 Nov 2026</time>
           <ul>
             <li>Version 0.2.7: Automatic location now picks the fastest city. The app times each server when you connect and starts with the quickest.</li>
@@ -207,6 +223,10 @@
             <li>Super stealth is now called Scrambled Hysteria, as it needs a network that allows UDP. Editor options open and close smoothly.</li>
           </ul>
         </li>
+      </ol>
+      <details class="older">
+        <summary>Earlier versions</summary>
+        <ol class="log">
         <li>
           <time datetime="2026-10-28">28 Oct 2026</time>
           <ul>
@@ -215,10 +235,6 @@
             <li>The taskbar icon is now the line mark from the title bar, and opening an option in Edit route no longer makes the window jump.</li>
           </ul>
         </li>
-      </ol>
-      <details class="older">
-        <summary>Earlier versions</summary>
-        <ol class="log">
           <li>
             <time datetime="2026-10-27">27 Oct 2026</time>
             <ul>

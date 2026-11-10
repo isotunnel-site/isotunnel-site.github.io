@@ -1,23 +1,23 @@
 {
-  "version": "0.2.7",
-  "notes": "Automatic location now picks the fastest city: the app times each server when you connect and starts with the quickest.",
-  "pub_date": "2026-11-01T22:43:21.834Z",
+  "version": "0.2.8",
+  "notes": "A bolder line that shows your download speed as it arrives, a clearer message when a network blocks the connection, the days left in Account, and the network test now draws each way as it runs. Speed mode stays in the fastest city.",
+  "pub_date": "2026-11-10T09:54:13.389Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZlYvTkZuR1UraUNqS0tSSmtiM0VVVXRlZlgxYUlmb3ViK0lWclV1MXg5cTlzeFVnZVYwWmtQbTFCTXJPZWxIcXZubHBoV3B2L214STlnRXg5QjVKcXN5THpjb3UvRGdNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNTczMDAxCWZpbGU6aXNvdHVubmVsXzAuMi43X3g2NC1zZXR1cC5leGUJdmVyc2lvbjowLjIuNwprZXkvb3JlWEE0OTIxbWw1L09VVjBkaUZBYkZieVBaSXhKQlh4QjNyWXNqTnVwUTNIU2x1VTJBb3R5d2RBVG1GR2tRc0RjcmpBd3pVbjZJRmttTTJBUT09Cg==",
-      "url": "https://isotunnel.com/updates/0.2.7/isotunnel_0.2.7_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZlYvTkZuR1UraU13bGZQeWQ0MGl2THluMUNJbE8xcUxvdlRCVy9qOGRJWlA4T1o1ZVRURDlUbWVxQkFJQkh4TFNqZHpkaU1GSjFlcm9OL2dYVXRuOFdWeGoySEJHY3dRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0MzA0NDUzCWZpbGU6aXNvdHVubmVsXzAuMi44X3g2NC1zZXR1cC5leGUJdmVyc2lvbjowLjIuOApBYitqNlJXVjRzdlpCOFA0bkR1TTR2NjdUb0NCOUFxSkNPb2IwWm9tNjBNTDRQeWZwWGpCMklaVnNrSmhmc2EvcWFqZXFTQ1RGRElzY3pOL2gxeE9DQT09Cg==",
+      "url": "https://isotunnel.com/updates/0.2.8/isotunnel_0.2.8_x64-setup.exe"
     },
     "windows-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZlYvTkZuR1UraU5tVXpiK0o4ZkFDaEpOWEhKc1RUNDBDWTlBSjBtMW9MRGFaN1hKQkliR21RbjZoQ2EwWTRJeDdyTXVqVTRvNjZ5UkhGeWxLWFFLMWx2RVFUSHdyU0FjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNTczMTY3CWZpbGU6aXNvdHVubmVsXzAuMi43X2FybTY0LXNldHVwLmV4ZQl2ZXJzaW9uOjAuMi43ClRVWGtTMjJNV0VreXJaSVNXZXBYckpyOFpuTCt5dFNHT1ZmRkY0RTFCMzE0WEFkUzFYVnFLZnVLSGhwNEdLOE9vTVY1ZHhjdkpkWUlTQ1ljN3Y3MUJRPT0K",
-      "url": "https://isotunnel.com/updates/0.2.7/isotunnel_0.2.7_arm64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZlYvTkZuR1UraU8zRGN0NHFDWG5yQjlFNGRvalJ4aHA0YzcydmxrOHEvSld2RVhZczBuRnJVY2ltYllVOWR4NzF2Z1V4SER1cmxOY2NsZktmTHVTbmlpNWErelJrV2dVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0MzA0NjYwCWZpbGU6aXNvdHVubmVsXzAuMi44X2FybTY0LXNldHVwLmV4ZQl2ZXJzaW9uOjAuMi44CkkyYTRwdHdERkJ0SkFFQWpDYTJObzkyNG1SOC9qSjdxSWxyOWJDdnFka3prNTlBMERjTjlrdTZVMG9nR3E0UUw0UWgyVHdXRzVHSHo4RzduNElrRUFRPT0K",
+      "url": "https://isotunnel.com/updates/0.2.8/isotunnel_0.2.8_arm64-setup.exe"
     },
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZlYvTkZuR1UraUorblZqQU5aSXovRm0wajdUUVhxdndQaW1NOTVhdkRjMHRUME04RW5rUmRSN3R4L2xyQ0I0YWhUc0p6WStmeS9sUWp5U2ZLVDEyU2luWTNKZnBqbVFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNTczMjk2CWZpbGU6aXNvdHVubmVsXzAuMi43X2FhcmNoNjQtYXBwbGUtZGFyd2luLmFwcC50YXIuZ3oKTTVQdmt1NVVUQmtEKzVBV1pOdTRBcEVrZFRKWSt3VHIyY0ErWGVwNzZ3SUk5QmFXcVBpRXJ0VERMM3NoWExJYmRFMU0rVXd3cXJkRkIycFdsMlJTRFE9PQo=",
-      "url": "https://isotunnel.com/updates/0.2.7/isotunnel_0.2.7_aarch64-apple-darwin.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZlYvTkZuR1UraUxEeVdWWUI3U1FvWW04R1JLbG9zWER2cE4yZ3FLT21zRHVXa2VZNzVnM1dsaXZMRnFTdTFqT25xeG0wMDAybUNvdFlDZFNkaDJVTGxXcDdENldmTVE4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0MzA0OTMzCWZpbGU6aXNvdHVubmVsXzAuMi44X2FhcmNoNjQtYXBwbGUtZGFyd2luLmFwcC50YXIuZ3oKYlpKWDBkR3pZUGFINFZmWGxYajdEb3A1dHBNcEp2K2hxS3lQV1hnMkdnVTZ0M3YyT1BTaXZBTGRFT3lGZmo2cXNsSlhtUUgwSHkrMlZuazNjbzRqQkE9PQo=",
+      "url": "https://isotunnel.com/updates/0.2.8/isotunnel_0.2.8_aarch64-apple-darwin.app.tar.gz"
     },
     "darwin-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZlYvTkZuR1UraU9lTXhncGZNTjNjYVpQOTR5VGNYYS9iTXFydFd0Tm12YVpWU1RoK3RjMFRkZTloTlhPamwvK2tNc09BTXVnbDdYWE9WZ20zMFZJSTZYazBsQnZ0MlF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNTczMjk3CWZpbGU6aXNvdHVubmVsXzAuMi43X3g4Nl82NC1hcHBsZS1kYXJ3aW4uYXBwLnRhci5negptQ3hUUEdpcXRySnJ5R3NTamlGN3k2R0t0dGV6ZEJwdEg5SmxnV2pneVB6bHc0cnFHUTYvMyt6YkIva1EyYUIydVhvOHQ1NVlrWGlxRXpFdkNoUFlDZz09Cg==",
-      "url": "https://isotunnel.com/updates/0.2.7/isotunnel_0.2.7_x86_64-apple-darwin.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZlYvTkZuR1UraUhKWCsvVkpaUjRRd1JBckxwVXVmemQzem1Ldm5ZY1BYNlEzT3pnSWpYOFpnOW1BVzlZblEvd21jRDU3SjRjRzhMZnBlUVoxTEFvaUc3amQwT2xOalFzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0MzA0OTM0CWZpbGU6aXNvdHVubmVsXzAuMi44X3g4Nl82NC1hcHBsZS1kYXJ3aW4uYXBwLnRhci5nego3VmF4eDdWVDRKbjRlbjZwT01YSGJiUUJWU1FtQ3hwY1RBOGJGRlFaRlNaSlNZN2MvMHA0VGR5SStQSWxaNFRMUVowSHdhbDRFV3VKZEhLcjZLMDZEQT09Cg==",
+      "url": "https://isotunnel.com/updates/0.2.8/isotunnel_0.2.8_x86_64-apple-darwin.app.tar.gz"
     }
   }
 }

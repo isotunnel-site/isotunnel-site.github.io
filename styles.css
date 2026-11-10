@@ -1,5 +1,5 @@
 /* isotunnel website: "the route". The page is one line, the same line the app draws: every section is a stop on
-   it, and the line changes colour between stops the way the app's line changes with the way in.
+   it. The line itself is neutral: in the app a colour means a way in, and only the ways in are coloured here.
    - Same system as the app (src/styles.css): Overpass, the line colours, stations with a ring, a filled end.
    - Plain section names (the stops), real copy, no gradients, no stock icons.
    - Dark by default where the system is dark; the visitor can switch (the moon/sun button).
@@ -17,7 +17,7 @@
   --bg: #F2F4F6; --surface: #FFFFFF; --rule: #D5DBE1; --text: #1B2733; --dim: #586575; --station: #F2F4F6;
   --link: #0B6672; --bad: #B42318;
   --line-443: #0F7C8C; --line-8443: #D9A21B; --line-cdn: #E8731A; --line-hy: #C2255C; --line-auto: #6A4FD0;
-  --on-line: #FFFFFF;
+  --on-line: #FFFFFF; --dash: #A7B1BC;
   --border: var(--rule); --radius: 12px;
   --font: Overpass, "Segoe UI", system-ui, sans-serif;
   --wrap: 1120px;
@@ -31,7 +31,7 @@
     --bg: #151B21; --surface: #1E262F; --rule: #36424F; --text: #E8ECF0; --dim: #9AA6B2; --station: #151B21;
     --link: #3FBFCE; --bad: #FF8A7A;
     --line-443: #1FA0B0; --line-8443: #E0B23A; --line-cdn: #F08A3C; --line-hy: #F06595; --line-auto: #9C86F2;
-    --on-line: #0E1418;
+    --on-line: #0E1418; --dash: #55636F;
     color-scheme: dark;
   }
 }
@@ -39,7 +39,7 @@
   --bg: #151B21; --surface: #1E262F; --rule: #36424F; --text: #E8ECF0; --dim: #9AA6B2; --station: #151B21;
   --link: #3FBFCE; --bad: #FF8A7A;
   --line-443: #1FA0B0; --line-8443: #E0B23A; --line-cdn: #F08A3C; --line-hy: #F06595; --line-auto: #9C86F2;
-  --on-line: #0E1418;
+  --on-line: #0E1418; --dash: #55636F;
   color-scheme: dark;
 }
 
@@ -90,7 +90,7 @@ img { max-width: 100%; height: auto; }
    colours meet inside a station (as in the app) instead of stopping short of it. The next stretch is later
    in the page, so it paints over this one's tail. */
 .seg {
-  flex: 1; width: var(--rail); border-radius: calc(var(--rail) / 2); background: var(--c, var(--line-443));
+  flex: 1; width: var(--rail); border-radius: calc(var(--rail) / 2); background: var(--dash);
   position: relative; z-index: 0;
   margin-top: calc(var(--rail-w) / -2);
   margin-bottom: calc(-1 * var(--mark-top) - var(--cap-h) / 2);
@@ -108,6 +108,21 @@ h1 { font-size: clamp(40px, 6.4vw, 84px); line-height: 1.0; letter-spacing: -0.0
 h2 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; max-width: 18em; }
 h3 { font-size: 22px; line-height: 1.2; }
 .body p { margin: 0; max-width: 40em; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; }
+.hero-text { min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+.app-shot { margin: 0; width: min(100%, 300px); }
+.app-shot img { display: block; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 0 0 1px var(--rule); }
+.shot-dark { display: none !important; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .shot-light { display: none !important; }
+  :root:not([data-theme="light"]) .shot-dark { display: block !important; }
+}
+:root[data-theme="dark"] .shot-light { display: none !important; }
+:root[data-theme="dark"] .shot-dark { display: block !important; }
+@media (min-width: 960px) {
+  .hero { grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; align-items: start; }
+  .app-shot { margin-top: 28px; }
+}
 .lede { font-size: 19px; color: var(--dim); max-width: 36em; }
 
 /* ── buttons: the app's, round-ended ── */
@@ -127,7 +142,7 @@ h3 { font-size: 22px; line-height: 1.2; }
 .row-btns { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 
 /* ── ways in: the app's way-in sheet, a swatch of each line beside its name ── */
-.ways { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); column-gap: 48px; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+.ways { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); column-gap: 48px; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
 .way { display: grid; grid-template-columns: 8px minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
 .way .sw { grid-row: span 2; }
 .way strong { font-weight: 800; font-size: 17px; }
@@ -150,6 +165,8 @@ h3 { font-size: 22px; line-height: 1.2; }
 .plan { flex: 1 1 340px; min-width: 0; background: var(--surface); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
 .price { font-size: 24px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.25; }
 .download { flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 14px; padding-top: 4px; }
+.download .row-btns { gap: 8px; }
+.download .btn { padding-inline: 18px; }
 /* Test first, then buy: numbered stations, and Pay stays dim until the buyer says the test got through. */
 .step { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; }
 .step b { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; border: 3px solid var(--line-443); font-size: 13px; line-height: 1; padding-top: 0.2em; /* Overpass digits sit ~1.3px high */ }
@@ -167,7 +184,9 @@ h3 { font-size: 22px; line-height: 1.2; }
 }
 
 /* ── questions and details ── */
-.qa { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px 44px; }
+/* Questions flow down balanced columns, so a long answer doesn't leave holes beside the short ones. */
+.qa { columns: 3 280px; column-gap: 44px; }
+.qa > div { break-inside: avoid; margin-bottom: 28px; }
 .qa h3 { font-size: 18px; letter-spacing: 0; }
 .qa p { margin-top: 6px; color: var(--dim); }
 .facts-grid { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px 28px; margin: 0; }
@@ -191,6 +210,22 @@ details.older .log { margin-top: 18px; }
 .bottom { display: flex; flex-wrap: wrap; gap: 8px 22px; padding-block: 36px 48px; font-size: 14px; color: var(--dim); border-top: 1px solid var(--rule); }
 .bottom a { color: var(--dim); }
 .doc, .order { padding-block: 32px 72px; max-width: 760px; }
+.doc, .order {
+  --doc-gap: clamp(18px, 4vw, 40px);
+  position: relative; max-width: calc(760px + var(--rail-w) + var(--doc-gap));
+  padding-left: calc(var(--gutter) + var(--rail-w) + var(--doc-gap));
+}
+.doc::before, .order::before {
+  content: ""; position: absolute; left: calc(var(--gutter) + (var(--rail-w) - var(--rail)) / 2); top: 56px; bottom: 87px;
+  width: var(--rail); border-radius: calc(var(--rail) / 2); background: var(--dash);
+}
+.doc::after, .order::after { content: ""; position: absolute; left: var(--gutter); bottom: 72px; width: var(--rail-w); height: var(--rail-w); border-radius: 50%; background: var(--text); }
+.doc h1::before, .doc h2::before, .order-title::before {
+  content: ""; position: absolute; left: var(--gutter); width: var(--rail-w); height: var(--rail-w); box-sizing: border-box;
+  border-radius: 50%; border: var(--ring) solid var(--text); background: var(--station); z-index: 1;
+}
+.doc h1::before, .order-title::before { margin-top: calc((1em - var(--rail-w)) / 2); }
+.doc h2::before { margin-top: calc((1.2em - var(--rail-w)) / 2); }
 .doc h1, .order-title { font-size: clamp(32px, 5vw, 48px); margin-bottom: 18px; }
 .doc h2 { font-size: 22px; margin: 34px 0 10px; }
 .doc p, .doc li { color: var(--dim); }
@@ -208,7 +243,9 @@ details.older .log { margin-top: 18px; }
 @media (max-width: 640px) {
   :root { --rail-w: 22px; --rail: 8px; --ring: 5px; --cap-h: 40px; }
   .body { padding-bottom: 72px; }
-  .top nav { margin-left: 0; width: 100%; }
+  .top-inner { flex-wrap: nowrap; }
+  .top nav { margin-left: auto; flex-wrap: nowrap; gap: 16px; }
+  .top nav a:not(.keep) { display: none; }
 }
 /* ── motion: the page glides to a stop, the station you arrive at pulses once, and each stretch of line
    draws down as you scroll to it (where the browser supports scroll-linked animation) ── */
